@@ -1,86 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salon de Jardin - Vente</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon de Jardin Rotin - Élégant & Confortable</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
     }
     header {
-      background: #2c3e50;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #1a1a1a;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+    }
+    nav a {
+      margin-left: 15px;
       color: white;
-      padding: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00aaff;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    section {
+      padding: 30px 20px;
       text-align: center;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .gallery img {
+    section img {
       width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
-    }
-    .details {
-      margin-top: 2rem;
-      background: white;
-      padding: 1.5rem;
+      max-width: 800px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
     }
-    .buy-button {
-      display: block;
-      margin: 2rem auto 0;
-      background: #27ae60;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
+    section p {
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 20px;
     }
-    .buy-button:hover {
-      background: #219150;
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="Logo" />
+    <nav>
+      <a href="#produit">Produit</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Salon de Jardin en Rotin avec Coussins</h1>
-</header>
-
-<div class="container">
-  <div class="gallery">
-    <img src="file-P8m3DzU86MSfj3R6GFnp7j" alt="Salon de jardin">
-    <img src="file-WUPmezN2K9ggnPiHHFnrWj" alt="Dimensions salon de jardin">
+  <div class="hero">
+    <h1>Salon de Jardin en Rotin - Élégance & Confort</h1>
+    <p>Apportez une touche naturelle et chic à votre extérieur avec ce salon complet en rotin tressé et coussins moelleux.</p>
+    <a class="btn" href="paiement.html">Acheter maintenant – 249€</a>
   </div>
 
-  <div class="details">
-    <h2>Description du produit</h2>
-    <p>Ensemble de mobilier de jardin élégant comprenant :</p>
-    <ul>
-      <li>1 canapé 2 places (129 x 69 x 71,5 cm)</li>
-      <li>2 fauteuils (66 x 71,5 x 69 cm)</li>
-      <li>1 table basse en verre (90 x 50 x 38 cm)</li>
-    </ul>
-    <p>Structure en acier imitation rotin, coussins gris confortables. Idéal pour terrasse ou balcon.</p>
-  </div>
+  <section id="produit">
+    <h2>Votre nouveau coin détente</h2>
+    <img src="salon.jpg" alt="Salon de jardin en extérieur" />
+    <p>Un ensemble parfait pour vos moments de convivialité en terrasse ou au jardin. Élégance naturelle, confort assuré.</p>
 
-  <button class="buy-button">Acheter Maintenant</button>
-</div>
+    <img src="salon1.jpg" alt="Vue du salon complet" />
+    <p>Composé de deux fauteuils, un canapé deux places et une table basse, ce salon s'intègre harmonieusement dans tous les extérieurs.</p>
 
+    <img src="salon2.jpg" alt="Dimensions du mobilier" />
+    <p>Des dimensions optimisées pour le confort et l’espace : profitez de l’assise généreuse et de la stabilité du mobilier.</p>
+
+    <img src="salon3.jpg" alt="Coussins rembourrés" />
+    <p>Coussins épais et amovibles pour un entretien facile et une assise moelleuse tout au long de l’été.</p>
+
+    <img src="salon4.jpg" alt="Structure robuste" />
+    <p>Structure en acier laqué et rotin synthétique résistant aux UV et à l'humidité : une durabilité garantie.</p>
+
+    <a class="btn" href="paiement.html">Acheter maintenant – 249€</a>
+  </section>
+
+  <footer>
+    <a href="contact.html">Contact</a> | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="cgv.html">Conditions Générales de Vente</a>
+  </footer>
 </body>
 </html>
